@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="container">
+        <div>
+      <img
+        src=https://i.pinimg.com/736x/d9/c5/84/d9c584529e31e16607af99be8d0af479.jpg
+        alt=""
+      />
+      
+      <h3>King Khan</h3>
+      <div class="btn">
+        <button id="like">👍</button>
+        <h3>Likes : <span id="likeCount">0</span></h3>
+      </div>
+      <div class="btn">
+        <button id="dislike">👎</button>
+        <h3>DisLikes : <span id="dislikeCount">0</span></h3>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<script>
+
+    var likebtn = document.querySelector("#like")
+
+    var countLikes = 0
+
+    likebtn.addEventListener("click" , function(){
+        countLikes++;    
+
+        var likeCount = document.querySelector("#likeCount")
+        likeCount.innerText = countLikes
+        likeCount.style.color = "Blue"
+
+        
+    })
+    
+    var dislikebtn = document.querySelector("#dislike")
+    var countDislikes = 0
+
+    dislikebtn.addEventListener("click" , function(){
+        countDislikes++;
+
+        var dislikeCount = document.querySelector("#dislikeCount")
+        dislikeCount.innerText = countDislikes
+        dislikeCount.style.color = "Red"
+
+    })
+
+
+
+</script>

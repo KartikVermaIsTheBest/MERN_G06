@@ -1,0 +1,47 @@
+#container{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+}
+
+#text{
+    text-align: center;
+    margin: 0 auto 50px auto;
+}
+
+#mainThing{
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    gap: 20px;
+}
+
+.card{
+    height: 300px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    padding-bottom: 20px;
+}
+
+.image{
+    width: 100%;
+    height: 200px;
+    object-fir: cover;
+}
+
+
+
+.extras{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.logo{
+    width: 90px;
+    height: 30px;
+    margin-bottom: 0px;
+}

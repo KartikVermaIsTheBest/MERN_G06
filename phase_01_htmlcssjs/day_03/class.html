@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="clas">
+    <style>
+        #hideData{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <form action="">
+                <div>
+                <label for="">Name:</label>
+                <input type="text" id="name">
+                </div>
+                <div>
+                <label for="">Email:</label>
+                <input type="text" id="email"> 
+                </div>
+                <div>
+                <label for="">Age:</label>  
+                <input type="text" id="age">
+                </div>
+                <div>
+                    <button id="submit">
+                        Submit
+                    </button>
+                </div>
+            </form> 
+            <div id="hideData">
+                <h1>Students Data</h1>
+                <table border="2">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableContent">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<script>
+    var btn = document.getElementById("submit")
+    btn.addEventListener("click" , function(e){
+        e.preventDefault()
+        var name = document.getElementById("name")
+        var email = document.getElementById("email")
+        var age = document.getElementById("age")
+
+        var inpName = name.value
+        var inpEmail = email.value
+        var inpAge = age.value
+
+        var showData = document.getElementById("hideData")
+        showData.style.display = "block"
+
+        var tbody = document.getElementById("tableContent");
+
+        tbody.innerHTML += `<tr>
+                            <td>${inpName}</td>
+                            <td>${inpEmail}</td>
+                            <td>${inpAge}</td>
+                        </tr>`
+
+        name.value = "";
+        email.value = "";
+        age.value = "";
+        
+    })
+</script>
