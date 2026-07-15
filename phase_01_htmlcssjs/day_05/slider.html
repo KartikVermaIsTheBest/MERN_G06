@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width : 100%;
+            height: 500px;
+            border: 2px solid red;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Slider Page</h1>
+    <div id="container">
+        <img id="movie" src="" alt="">
+    </div>
+</body>
+</html>
+
+<script>
+    let posters = [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNobK11u9p2BJim5KvrD8kAdjujPoId59nt5pRh7-e9GnSucZWIMjEaUDm&s=10",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSDuU_EaTW704H5egtcCUo_2GQK0sXqRQixpo_C-9yRLfN_ygKty3X2UWy&s=10",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8DPdJAd07U0gwhwCE57tlxLzbqqC9sVbYdOZlD0fa9Q&s=10"
+    ]
+
+    let image = document.getElementById("movie")
+    image.src = posters[0]
+    let index = 1
+
+    setInterval(() => {
+        image.src = posters[index]
+        index++
+    } , 2000)
+
+
+</script>
