@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+    <form id="myForm" action="" onsubmit="getData(event)">
+
+        <label for="">Name</label>
+        <input id="name" type="text" placeholder="Enter Your Name">
+
+        <label for="">Age</label>
+        <input id="age" type="text" placeholder="Enter Your Age">
+
+        <label for="">Course</label>
+        <input id="course" type="text" placeholder="Enter Your Course">
+
+        <button>Submit</button>
+    </form>
+    </div>
+    <div id="profile">
+        
+    </div>
+</body>
+</html>
+
+<script>
+    let name = document.getElementById("name")
+    let age = document.getElementById("age")
+    let form = document.getElementById("myForm")
+    let course = document.getElementById("course")    
+    let obj = {name:null , age: null , course: null}
+    let profile = document.getElementById("profile")
+    let fors = document.getElementById("main")
+    
+
+
+
+    function getData(event){
+        event.preventDefault()
+
+        let n = name.value
+        let a = age.value
+        let c = course.value
+
+        obj.name = n
+        obj.age = a
+        obj.course = c
+
+        localStorage.setItem("students",JSON.stringify(obj)) // converting object in json data
+
+    }
+
+    let renderData=()=>{
+        let student = localStorage.getItem("students")
+        console.log("data from local storage",student);
+        
+        let student_obj = JSON.parse(student)
+
+        profile.innerHTML = `
+        <h2 id="profile-name">${student_obj.name}</h2>
+        <h2 id="profile-age">${student_obj.age}</h2>
+        <h2 id="profile-course">${student_obj.course}</h2>
+        `
+    }
+
+
+    
+    renderData()
+
+
+
+</script>

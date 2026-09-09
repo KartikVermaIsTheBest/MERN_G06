@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="Number" type="text" placeholder="Enter A Number">
+    <button onclick="handleClick()">Submit</button>
+    <h1 id="Heading"></h1>
+</body>
+</html>
+<script>
+
+    var num = document.getElementById("Number")
+    var head = document.getElementById("Heading")
+
+    function handleClick(){
+        var val = +num.value;
+
+        if(val%2 == 0){
+            head.innerHTML = "Even Number"
+            head.style.color = "blue"
+        }
+        else{
+            head.innerHTML = "Odd Number"
+            head.style.color = "orange"
+        }
+    }
+</script>

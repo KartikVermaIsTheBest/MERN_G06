@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "name": "KARTIK VERMA",
+      "email": "kartik2939.beai24@chitkara.edu.in",
+      "age": "90",
+      "id": "GU091JqXtdI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

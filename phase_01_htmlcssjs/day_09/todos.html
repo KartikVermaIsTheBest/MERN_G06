@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"> -->
+    <style>
+      #container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        border: 2px solid black;
+        margin: auto;
+      }
+      #card {
+        border: 1px solid black;
+        min-height: 300px;
+        width: 600px;
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+      }
+      #card input {
+        height: 40px;
+        border-radius: 10px;
+      }
+
+      #addbtn {
+        width: 100px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      #todo-list {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+        width: 100%;
+      }
+      #todo-list li {
+        background: #f4f4f4;
+        padding: 10px;
+        border-bottom: 1px #ddd solid;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #todo-list li:last-child {
+        border-bottom: none;
+      }
+      .delete-btn {
+        background: #ff4444;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="card">
+        <div style="width: 100%; text-align: center">
+          <h1>To-Do List</h1>
+          <div>
+            <input
+              type="text"
+              id="todoInput"
+              placeholder="Enter Todo"
+              style="width: 70%"
+            />
+            <button id="addbtn">Add Todo</button>
+          </div>
+          <ul id="todo-list"></ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  const todoInput = document.getElementById("todoInput");
+  const addBtn = document.getElementById("addbtn");
+  const todoList = document.getElementById("todo-list");
+  let tasks = [];
+
+  function renderTasks() {
+    todoList.innerHTML = ""; // Clear the current list
+    tasks.forEach((todoText, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+              <span>${todoText}</span>
+              <button class="delete-btn" data-index="${index}">Delete</button>
+          `;
+      todoList.appendChild(li);
+    });
+  }
+
+  addBtn.addEventListener("click", () => {
+    const todoText = todoInput.value.trim();
+    if (todoText === "") return;
+
+    tasks.push(todoText);
+    todoInput.value = "";
+    renderTasks();
+    console.log("Tasks array:", tasks);
+  });
+
+  todoList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+      const index = parseInt(e.target.getAttribute("data-index"));
+      tasks.splice(index, 1);
+      renderTasks();
+      console.log("Tasks array:", tasks);
+    }
+  });
+</script>

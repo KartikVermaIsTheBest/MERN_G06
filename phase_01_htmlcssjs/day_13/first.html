@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="name">Enter Text Here : </label>
+    <input type="text" id="name" placeholder="Enter Text Here" />
+    <button id="saveBtn">Save Data</button>
+    <button id="loadBtn">Load Data</button>
+    <button id="clearBtn">Clear Data</button>
+    <div id="data"></div>
+  </body>
+</html>
+<script>
+  let saveBtn = document.getElementById("saveBtn");
+  let loadBtn = document.getElementById("loadBtn");
+  let clearBtn = document.getElementById("clearBtn");
+  let nameInput = document.getElementById("name");
+  let dataContainer = document.getElementById("data");
+
+
+  window.addEventListener("load", function () {
+    let savedData = localStorage.getItem("myData");
+    if (savedData) {
+      nameInput.value = savedData;
+    }
+  });
+
+  
+  saveBtn.addEventListener("click", function () {
+    let value = nameInput.value.trim();
+
+    if (value === "") {
+      alert("Please enter some text.");
+      return;
+    }
+
+    localStorage.setItem("myData", value);
+    alert("Data Saved");
+  });
+
+ 
+  loadBtn.addEventListener("click", function () {
+    let savedData = localStorage.getItem("myData");
+
+    if (!savedData) {
+      alert("No data found.");
+      return;
+    }
+
+    nameInput.value = savedData;
+  });
+
+
+  clearBtn.addEventListener("click", function () {
+    localStorage.removeItem("myData");
+    nameInput.value = "";
+    dataContainer.innerHTML = "";
+    alert("Data Cleared");
+  });
+</script>

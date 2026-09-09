@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"> -->
+     <style>
+        #container{
+            border: 1px solid red;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #card{
+            border: 1px solid black;
+            height: 300px;
+            width: 600px;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        }
+        #card input{
+            height: 40px;
+            border-radius: 10px;
+        }
+        #addBtn{
+            width: 100px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+     </style>
+</head>
+<body>
+    <div id="container">
+        <div id="card">
+            <div>
+            <input id="task" type="text" placeholder="Enter Todo">
+            <button id="addBtn" onclick="handleClick()">Add Todo</button>
+            </div>
+            <div id="taskContainer">
+        
+            </div>
+        </div>
+
+        
+    </div>
+</body>
+</html>
+<script>
+  let todos = [];
+
+let task = document.getElementById("task");
+let taskContainer = document.getElementById("taskContainer");
+
+console.log(task);
+console.log(taskContainer);
+
+function handleClick() {
+    console.log("Clicked");
+
+    let item = task.value;
+
+    if (item == "") return;
+
+    todos.push({
+        task: item,
+        status: false
+    });
+
+    console.log(todos);
+
+    render();
+}
+
+function render() {
+    console.log("Rendering");
+
+    taskContainer.innerHTML = "";
+
+        taskContainer.innerHTML += `<p>${todos[todos.length - 1].task}</p>
+                                    <button>Delete</button>`;
+}
+</script>

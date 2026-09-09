@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">Grade: </label>
+    <input id="marks" type="text" placeholder="Enter Your Grade">
+    <button onclick="getGrade()">Submit</button>
+    <br>
+    <h2 id="heading"></h2>
+</body>
+</html>
+<script>
+    var marks = document.getElementById("marks")
+    var heading = document.getElementById("heading")
+
+    function getGrade(){
+        let mrk = marks.value
+
+        if(mrk >= 90){
+            heading.innerHTML = "A+"
+            heading.style.color = "Blue"
+        }
+        else if(mrk >= 75 && mrk < 90){
+            heading.innerHTML = "A"
+            heading.style.color = "LightBlue"
+        }
+        else if(mrk >= 60 && mrk < 75){
+            heading.innerHTML = "B"
+            heading.style.color = "Green"
+        }
+        else if(mrk >= 40 && mrk < 60){
+            heading.innerHTML = "C"
+            heading.style.color = "LightGreen"
+        }
+        else{
+            heading.innerHTML = "Fail"
+            heading.style.color = "Red"
+        }
+
+        marks.value = ""
+    }
+</script>

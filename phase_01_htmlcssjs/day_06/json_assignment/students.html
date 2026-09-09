@@ -1,0 +1,50 @@
+<!-- Fetch all students from json-server api and show in the form of table -->
+
+<!-- name | email | age -->
+<!-- aman | aman@email.com | 27 -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+    }
+
+    div {
+      display: flex;
+      justify-content: center; /* X-axis */
+      align-items: center;     /* Y-axis */
+      height: 100vh;
+    }
+  </style>
+  <body>
+    <div>
+  <table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+
+    <tbody id="student-data"></tbody>
+  </table>
+  </div>
+  </body>
+</html>
+<script src="node_basics.js"></script>
