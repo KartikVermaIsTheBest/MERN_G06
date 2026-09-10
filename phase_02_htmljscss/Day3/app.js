@@ -1,7 +1,7 @@
 const http = require("http")
 
 const server = http.createServer((req,res) => {
-    if(req.url == "/"){
+    if(req.url == "/" && req.method == "Get"){
         res.write("Hello World\n")
         res.end("Welcome to HomePage");
 
