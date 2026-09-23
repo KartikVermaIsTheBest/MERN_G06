@@ -16,7 +16,7 @@ app.get("/students" , (req,res) => {
     const data = fs.readFileSync("students.json" , "utf-8");
     const students = JSON.parse(data);
     res.send(students);
-})
+})  
 
 app.post("/students" , (req,res) => {
     const data = fs.readFileSync("students.json" , "utf-8");
