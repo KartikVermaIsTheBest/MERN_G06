@@ -17,12 +17,20 @@ app.get("/users" , (req,res) => {
     res.send(users);
 })
 
+
+
 app.post("/users" , (req,res) => {
     const data = fs.readFileSync("db.json" , "utf-8");
     const users = JSON.parse(data);
-    const newUser = req.body;
-    console.log(newUser);
-    res.send("Data Saved");
+    const user = req.body;
+    if(user != undefined){
+        users.users.push(user);
+        fs.writeFileSync("db.json" , JSON.stringify(users));
+        res.send("Data Has Been Uploaded");
+    }
+    else{
+        res.status(400).send("The Data is Written in the DB");
+    }
 })
 
 app.listen(8080 , () => {
