@@ -30,11 +30,11 @@ app.put("/todos" , (req,res) => {
     const data = fs.readFileSync("db.json" , "utf-8");
     const todos = JSON.parse(data);
     
-    for(let i = 0 ; i < todos.todos.length ; i++){
-        if(todos.todos[i].id%2 == 0){
-            todos.todos[i].status = true;
+    todos.todos.forEach((user) => {
+        if(user.id%2 == 0){
+            user.status = true;
         }
-    }
+    });
 
     fs.writeFileSync("db.json" , JSON.stringify(todos));
     res.send("The data has been changed");
