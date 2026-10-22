@@ -1,4 +1,4 @@
-const {createStudent,getStudents,deleteStudent} = require("../controllers/studentController");
+const {createStudent,getStudents,getSingleStudent,deleteStudent,updateStudent} = require("../controllers/studentController");
 
 const express = require("express");
 const routes = express.Router();
@@ -10,4 +10,6 @@ const routes = express.Router();
 routes.post("/students" , createStudent);
 routes.get("/getStudents" , getStudents);
 routes.delete("/deleteStudent/:id" , deleteStudent);
+routes.get("/getSingleStudent/:id" , getSingleStudent);
+routes.put("/updateStudent/:id" , updateStudent);
 module.exports = {routes};

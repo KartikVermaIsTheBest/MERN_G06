@@ -23,7 +23,20 @@ const createStudent = async (req,res) => {
 
 const getStudents = async(req , res) => {
     try {
-        const data = await Student.find()
+        const data = await Student.find();
+        res.status(200).send({
+            "message" : "Data fetched Successfully",
+            data
+        })
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+const getSingleStudent = async(req , res) => {
+    try{
+        const data = await Student.findById(req.params.id);
         res.status(200).send({
             "message" : "Data fetched Successfully",
             data
@@ -48,4 +61,18 @@ const deleteStudent = async(req , res) => {
     }
 }
 
-module.exports = {createStudent , getStudents , deleteStudent};
+const updateStudent = async(req,res) => {
+    try{
+        const id = req.params.id;
+        const data = await Student.findByIdAndUpdate(id , req.body);
+        res.send({
+            "message" : "User updated successfully"
+        })
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+
+module.exports = {createStudent , getStudents , getSingleStudent , deleteStudent , updateStudent};
